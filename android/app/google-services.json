@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "392932625076",
+    "project_id": "fitness-journey-a2417",
+    "storage_bucket": "fitness-journey-a2417.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392932625076:android:f1c5959cf67780a843e5e1",
+        "android_client_info": {
+          "package_name": "com.fitness.journey"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrJ0FitotHRCV8AMVijkK9dwxRXWLHj_o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
