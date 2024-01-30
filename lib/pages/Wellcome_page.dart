@@ -12,13 +12,24 @@ class WelcomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            // Image at the top covering 25% of the page
+            Expanded(
+              flex: 25,
+              child: AspectRatio(
+                aspectRatio: 1, // Adjust the aspect ratio as needed
+                child: Image.asset(
+                  'assets/image/Welcome.PNG', 
+                ),
+              ),
+            ),
+            SizedBox(height: 20.0),
             Text(
               'Welcome to Fitness Journey',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 24.0,
               ),
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.left,
             ),
             SizedBox(height: 20.0),
             Text(
@@ -26,15 +37,15 @@ class WelcomePage extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16.0,
               ),
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.left,
             ),
             SizedBox(height: 40.0),
             ElevatedButton(
               onPressed: () {
-                Get.to(LoginPage()); // Using GetX 
+                Get.to(()=>LoginPage()); // Using GetX 
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
+                backgroundColor: Colors.blue,
                 minimumSize: Size(double.infinity, 50.0),
               ),
               child: Text('Login'),
@@ -51,6 +62,7 @@ class WelcomePage extends StatelessWidget {
               ),
               child: Text('Register'),
             ),
+            SizedBox(height: 40.0), // Add some space after the buttons
           ],
         ),
       ),

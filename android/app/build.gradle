@@ -36,7 +36,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    kotlinOptions {npm install -g firebase-tools
+    kotlinOptions {
 
         jvmTarget = '1.8'
     }

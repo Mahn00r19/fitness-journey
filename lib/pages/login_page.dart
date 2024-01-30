@@ -1,7 +1,9 @@
 // lib/login_page.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:journey/Registeration_page.dart';
+import 'package:journey/controllers/auth_controller.dart';
+
+import 'Registeration_page.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -17,7 +19,7 @@ class LoginPage extends StatelessWidget {
               'Welcome back,Dear!',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 18.0,
+                fontSize: 30.0,
               ),
             ),
             SizedBox(height: 20.0),
@@ -103,23 +105,19 @@ class LoginPage extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 5.0),
-        Row(
-          children: [
-            Expanded(
-              child: TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                ),
+        GetBuilder<AuthController>(
+          builder: (controller) {
+            return TextField(
+              obscureText: !controller.isLoginPasswordShow,
+              decoration: InputDecoration(
+                suffixIcon:IconButton(onPressed: (){
+                  controller.toggelLoginPasswordShow();
+
+                }, icon: Icon(controller.isLoginPasswordShow?  Icons.visibility_off:Icons.visibility)),
+                border: OutlineInputBorder(),
               ),
-            ),
-            IconButton(
-              icon: Icon(Icons.remove_red_eye),
-              onPressed: () {
-                // Add logic to toggle password visibility
-              },
-            ),
-          ],
+            );
+          }
         ),
         SizedBox(height: 15.0),
       ],
