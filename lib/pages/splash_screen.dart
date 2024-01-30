@@ -1,8 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:journey/pages/Wellcome_page.dart';
 import 'package:journey/controllers/auth_controller.dart';
-
+import 'package:journey/pages/auth_screen.dart';
+import 'package:journey/pages/navigation_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -12,20 +13,24 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  AuthController authController=Get.put(AuthController());
+  AuthController authController = Get.put(AuthController());
+
   @override
   void initState() {
-    
     super.initState();
     goto();
   }
 
-  Future<void> goto()async{
+  Future<void> goto() async {
     await Future.delayed(2.seconds);
-    Get.off(()=>WelcomePage());
+    if (FirebaseAuth.instance.currentUser == null) {
+      Get.off(() => AuthScreen());
+    } else {
+      Get.off(() => NavigationScreen());
+    }
   }
-  
-@override
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
@@ -34,9 +39,9 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             // Placeholder for your logo, adjust the path and size accordingly
             Image.asset(
-              'assets/logo.png', 
+              'assets/logo.png',
               height: 150.0,
-              width: 150.0, 
+              width: 150.0,
             ),
             SizedBox(height: 20.0),
             Text('Fitness Journey'),
@@ -44,5 +49,5 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
       ),
     );
-}
+  }
 }

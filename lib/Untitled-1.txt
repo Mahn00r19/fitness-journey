@@ -1,3 +1,0 @@
-C:\Users\Usman Computers\AppData\Local\Pub\Cache\bin
-
-D:\flutter projects\fitness journey\.vscode\launch.json
